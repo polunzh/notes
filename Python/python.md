@@ -77,3 +77,9 @@ while,for in等循环都可以用else语句（`以前没有注意到`)，除非�
 ## 数据结构
 - 使用`items()`遍历字典中的`key/value`
 - 使用`in`/dict.has_key()检查一个key是否存在
+
+###序列`sequences`
+> 如果想要复制一个列表或者序列或复杂的对象,使用切片方法进行复制
+
+## 面向对象
+- `_name`,私有变量,但是外界依然可以访问到;`__name`(double underline prefix),私有变量,外界访问不到;`__name__`,外界访问的到.
