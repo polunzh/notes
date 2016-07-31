@@ -16,6 +16,10 @@
 - 命名任何一个分支 `git branch -m {oldname} {newname}`
 - 命名当前分支 `git branch -m {newname}`
 
+5. 删除文件
+- 从仓库中以及从文件系统中删除文件: `git rm {file name}`
+- 仅从仓库中删除文件: `git rm --cached {file name}`
+
 ## 配置相关
 - 列出所有别名: git config --get-regexp alias
 
