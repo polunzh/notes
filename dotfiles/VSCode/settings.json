@@ -3,11 +3,22 @@
     "editor.fontFamily": "monaco",
     "editor.fontSize": 16,
     "editor.rendeWhitespace": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/*.pyc": true
-    }
+        "**/*.pyc": true,
+        // "node_modules/": true,
+        "typings": true
+    },
+    "typescript.check.workspaceVersion": false,
+    "window.zoomLevel": 0,
+    "files.trimTrailingWhitespace": false,
+    "editor.cursorStyle": "block",
+    "terminal.integrated.shell.windows": "{git bash location}"
 }
