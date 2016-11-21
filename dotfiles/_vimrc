@@ -1,0 +1,137 @@
+"---------------------------------------------
+" File: $HOME/.vimrc
+" 参考:https://github.com/s3rvac/dotfiles/blob/master/vim/.vimrc
+" 
+"---------------------------------------------
+
+" pathogen
+execute pathogen#infect()
+
+"---------------------------------------------
+" 通用
+"---------------------------------------------
+set nocompatible        " Disable vi compatibility.
+set undolevels=200      " Number of undo levels.
+" set scrolloff=10        " Keep a context (rows) when scrolling vertically.
+" set sidescroll=5        " Keep a context (columns) when scrolling horizontally.
+set tabpagemax=1000     " Maximum number of tabs to open by the -p argument.
+" set esckeys             " Cursor keys in insert mode.
+" set ttyfast             " Improves redrawing for newer computers.
+" set lazyredraw          " Don't redraw during complex operations (e.g. macros).
+" set autowrite           " Automatically save before :next, :make etc.
+set confirm             " Ask to save file before operations like :q or :e fail.
+" set magic               " Use 'magic' patterns (extended regular expressions).
+" set hidden              " Allow switching edited buffers without saving.
+" set nostartofline       " Keep the cursor in the current column with page cmds.
+" set nojoinspaces        " Insert just one space joining lines with J.
+" set showcmd             " Show (partial) command in the status line.
+" set noshowmatch         " Don't show matching brackets when typing them.
+" set showmode            " Show the current mode.
+" set shortmess+=aIoOtT   " Abbreviation of messages (avoids 'hit enter ...').
+" set path=$PWD/**        " Include everything under $PWD into the path.
+" set nrformats-=octal    " Make incrementing 007 result into 008 rather than 010.
+
+" Allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+
+" Backup and swap files.
+set nobackup            " Disable backup files.
+set noswapfile          " Disable swap files.
+set nowritebackup       " Disable auto backup before overwriting a file.
+
+" History
+set history=1000        " Number of lines of command line history.
+set viminfo='100,\"500,r/mnt,r~/mnt,r/media " Read/write a .viminfo file.
+set viminfo+=h          " Do not store searches.
+
+" Line numbers.
+set number              " Show line numbers.
+set relativenumber      " Show relative numbers instead of absolute ones.
+
+" Splitting.
+set splitright          " Open new vertical panes in the right rather than left.
+set splitbelow          " Open new horizontal panes in the bottom rather than top.
+
+" Security.
+set secure              " Forbid loading of .vimrc under $PWD.
+set nomodeline          " Modelines have been a source of vulnerabilities.
+
+" Indention and formatting.
+" set autoindent          " Indent a new line according to the previous one.
+" set copyindent          " Copy (exact) indention from the previous line.
+" set nopreserveindent    " Do not try to preserve indention when indenting.
+" set nosmartindent       " Turn off smartindent.
+" set nocindent           " Turn off C-style indent.
+" set fo+=q               " Allow formatting of comments with "gq".
+" set fo-=r fo-=o         " Turn off automatic insertion of comment characters.
+" set fo+=j               " Remove a comment leader when joining comment lines.
+syntax on
+filetype indent on      " Turn off indention by filetype.
+" Override the previous settings for all file types (some filetype plugins set
+" these options to different values, which is really annoying).
+au FileType * set autoindent nosmartindent nocindent fo+=q fo-=r fo-=o fo+=j
+set laststatus=2
+
+" Whitespace.
+set tabstop=4           " Number of spaces a tab counts for.
+set shiftwidth=4        " Number of spaces to use for each step of indent.
+set shiftround          " Round indent to multiple of shiftwidth.
+set noexpandtab         " Do not expand tab with spaces.
+
+" Wrapping.
+set wrap                " Enable text wrapping.
+set linebreak           " Break after words only.
+set display+=lastline   " Show as much as possible from the last shown line.
+set textwidth=0         " Don't automatically wrap lines.
+" Disable automatic wrapping for all files (some filetype plugins set this to
+" a different value, which is really annoying).
+au FileType * set textwidth=0
+
+"------------------------------------------------------------------------------
+" Typos correction.
+"------------------------------------------------------------------------------
+
+if has("multi_byte")
+    " UTF-8 编码
+    set encoding=utf-8
+    set termencoding=utf-8
+    set formatoptions+=mM
+    set fencs=utf-8,gbk
+    if v:lang =~? '^/(zh/)/|/(ja/)/|/(ko/)'
+        set ambiwidth=double
+    endif
+    if has("win32")
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        language messages zh_CN.utf-8
+    endif
+else
+    echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
+endif
+
+"---------------------------------------------
+" 插件
+"---------------------------------------------
+
+" NERDTree
+
+" 打开vim是自动打开NERDTree
+autocmd vimenter * NERDTree
+
+"如果打开vim的时候没有指定文件，则自动打开NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"如果只剩下一个NERDTree窗口，则关闭vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" 快捷键设置
+map <C-n> :NERDTreeToggle<CR>
+
+"Powerline configuration
+" set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+" set guifont=Liberation_Mono_for_Powerline:h10
+" set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+let Powerline_symbols = 'compatible'
