@@ -1,0 +1,6 @@
+// 将键绑定放入此文件中以覆盖默认值
+[
+    { "key": "ctrl+w",               "command": "workbench.action.closeActiveEditor" },
+    { "key": "ctrl+shift+f",           "command": "editor.action.format",
+                                     "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly" }
+]
