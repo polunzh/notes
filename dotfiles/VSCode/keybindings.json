@@ -1,6 +1,39 @@
 // 将键绑定放入此文件中以覆盖默认值
 [
-    { "key": "ctrl+w",               "command": "workbench.action.closeActiveEditor" },
-    { "key": "ctrl+shift+f",           "command": "editor.action.format",
-                                     "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly" }
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+z",
+        "command": "undo",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "redo",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.format",
+        "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+o",
+        "command": "workbench.files.action.collapseFilesExplorerFolders"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "actions.find"
+    }
 ]
