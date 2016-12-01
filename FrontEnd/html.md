@@ -1,6 +1,6 @@
 # HTML学习笔记
 
-## DTD问的那个模型和HTML基础
+## DTD文档模型和HTML基础
 
 ### DTD文档模型类型
 > 1. 过渡的(Transitional):要求非常宽松，继续使用HTML4.01的标识。
