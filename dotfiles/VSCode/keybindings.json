@@ -25,7 +25,7 @@
         "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {

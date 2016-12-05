@@ -1,7 +1,7 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-    "editor.fontFamily": "monaco",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "Source Code Pro",
+    "editor.fontSize": 14,
     "editor.rendeWhitespace": true,
     "editor.rulers": [
         80,
@@ -17,8 +17,10 @@
         "typings": true
     },
     "typescript.check.workspaceVersion": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "files.trimTrailingWhitespace": false,
     "editor.cursorStyle": "block",
-    "terminal.integrated.shell.windows": "{git bash location}"
+    "terminal.integrated.shell.windows": "C:\\SoftWare\\Git\\git-bash.exe",
+    "vim.useCtrlKeys": false,
+    "typescript.check.tscVersion": false
 }
