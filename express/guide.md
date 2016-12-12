@@ -110,3 +110,19 @@ function errorHandler (err, req, res, next) {
     res.render('error', { error err })
 }
 ```
+
+## Debuging
+Express内部使用[debug](https://www.npmjs.com/package/debug)模块记录日志，
+debugging默认是关闭的，可以使用DEBUG环境变量打开：
+``` javascript
+DEBUG=express:*node idnex
+```
+*Windows*
+``` javascript
+set DEBUG=express:* & node index
+```
+
+使用`express`命令生成的项目使用项目名称作为`namespace`：
+```javascript
+$ DEBUG={projectname} node ./bin/www
+```
