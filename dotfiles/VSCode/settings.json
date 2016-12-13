@@ -13,14 +13,24 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/*.pyc": true,
-        // "node_modules/": true,
+        "**/node_modules/": true,
+        "client/dist/": true,
+        "server/dist/": true,
         "typings": true
     },
     "typescript.check.workspaceVersion": false,
     "window.zoomLevel": 1,
     "files.trimTrailingWhitespace": false,
     "editor.cursorStyle": "block",
-    "terminal.integrated.shell.windows": "C:\\SoftWare\\Git\\git-bash.exe",
+    "typescript.check.tscVersion": false,
+    "editor.cursorBlinking": "blink",
+    "editor.lineNumbers": "relative",
     "vim.useCtrlKeys": false,
-    "typescript.check.tscVersion": false
+    "TodoParser": {
+        "exclude": ["cpp", "c"],
+        "include": ["js"],
+        "folderExclude": ["node_modules", ".vscode"],
+        "only": ["sub-folder/sub-sub-folder"],
+        "markers": ["NOTE:", "REMINDER:"]
+    }
 }
