@@ -115,14 +115,10 @@ function errorHandler (err, req, res, next) {
 Express内部使用[debug](https://www.npmjs.com/package/debug)模块记录日志，
 debugging默认是关闭的，可以使用DEBUG环境变量打开：
 ``` javascript
-DEBUG=express:*node idnex
+DEBUG={ namespace }:*node idnex
 ```
 *Windows*
 ``` javascript
-set DEBUG=express:* & node index
+SET DEBUG={ namespace }:* & node index.js
 ```
-
-使用`express`命令生成的项目使用项目名称作为`namespace`：
-```javascript
-$ DEBUG={projectname} node ./bin/www
-```
+> `namespace`可以是`express`，项目名称等等
