@@ -1,8 +1,10 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-    "editor.fontFamily": "Source Code Pro",
+    "editor.fontFamily": "Consolas",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
     "editor.fontSize": 14,
-    "editor.rendeWhitespace": true,
+    "editor.renderWhitespace": "none",
     "editor.rulers": [
         80,
         120
@@ -13,14 +15,22 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/*.pyc": true,
-        // "node_modules/": true,
+        // "**/node_modules/": true,
         "typings": true
     },
     "typescript.check.workspaceVersion": false,
     "window.zoomLevel": 1,
-    "files.trimTrailingWhitespace": false,
     "editor.cursorStyle": "block",
-    "terminal.integrated.shell.windows": "C:\\SoftWare\\Git\\git-bash.exe",
-    "vim.useCtrlKeys": false,
-    "typescript.check.tscVersion": false
+    "typescript.check.tscVersion": false,
+    "editor.cursorBlinking": "blink",
+    "editor.lineNumbers": "relative",
+    "TodoParser": {
+        "exclude": ["cpp", "c"],
+        "include": ["js"],
+        "folderExclude": ["node_modules", ".vscode"],
+        "only": ["sub-folder/sub-sub-folder"],
+        "markers": ["NOTE:", "REMINDER:"]
+    },
+    "workbench.activityBar.visible": false,
+    "vim.useCtrlKeys": false
 }

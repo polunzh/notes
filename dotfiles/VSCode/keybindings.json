@@ -1,39 +1,49 @@
 // 将键绑定放入此文件中以覆盖默认值
-[
-    {
-        "key": "ctrl+c",
-        "command": "editor.action.clipboardCopyAction",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+z",
-        "command": "undo",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+y",
-        "command": "redo",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "shift+alt+f",
-        "command": "editor.action.format",
-        "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
-        "key": "shift+alt+o",
-        "command": "workbench.files.action.collapseFilesExplorerFolders"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "actions.find"
-    }
-]
+[{
+    "key": "ctrl+c",
+    "command": "editor.action.clipboardCopyAction",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+z",
+    "command": "undo",
+    "when": "editorTextFocus && !editorReadonly"
+}, {
+    "key": "ctrl+y",
+    "command": "redo",
+    "when": "editorTextFocus && !editorReadonly"
+}, {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+}, {
+    "key": "shift+alt+f",
+    "command": "editor.action.format",
+    "when": "editorHasFormattingProvider && editorTextFocus && !editorReadonly"
+}, {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+}, {
+    "key": "shift+alt+o",
+    "command": "workbench.files.action.collapseFilesExplorerFolders"
+}, {
+    "key": "ctrl+f",
+    "command": "actions.find"
+}, {
+    "key": "ctrl+k ctrl+0",
+    "command": "editor.foldAll",
+    "when": "editorTextFocus"
+}, {
+    "key": "ctrl+j",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+}, {
+    "key": "ctrl+shift+w",
+    "command": "extension.vim_ctrl+w",
+    "when": "editorTextFocus && !inDebugRepl"
+}, {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+}, {
+    "key": "tab",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+}]
