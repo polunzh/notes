@@ -29,11 +29,14 @@
     Object.freeze()方法
 2. es6中声明变量的方法: var, function, let, const, import和class
 
-### 顶层对象的属性
+> 优先使用`const`, 只要值不再改变的变量就用`const`；否则用`let`；避免用`var`;
+
+
+## 顶层对象的属性
     var 和 function声明的全局对象仍然是顶层对象的属性;但是另一方面，let、class和const声明的
     全局变量不再属于顶层对象的属性。
 
-### 顶层对象
+## 顶层对象
     在es5中顶层对象在浏览器和Node等环境下不太一致，在es5中:
 - 浏览器里面，顶层对象是window，但Node和Web Worker没有window。
 - 浏览器和Web Worker里面，self也指向顶层对象，但是Node没有self。
