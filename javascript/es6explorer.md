@@ -40,7 +40,7 @@ function UiComponent() {
 
 使用数组返回多个值
 ``` javascript
-const [, year, month, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2019-12-21);
+const [, year, month, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2019-12-21');
 ```
 > 上面例子中数组的第一个逗号是为了跳过数组第一个元素，因为`/^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2019-12-21')`
 返回的是`["2019-12-21", "2019", "12", "21"]`
@@ -145,7 +145,109 @@ Derived classes
 14. 使用继承`Error`类的方式的替换`自定义error构造函数`
 
 ``` javascript
-class MyError extends Error {
+class MyError extends Error {}
+```
 
+15. 使用内置的Map数据结构
+
+``` javascript
+const map = new Map();
+function countWords(word) {
+    const count = map[word] || 0;
+    map.set(word, count + 1);
 }
+```
+
+ES5:
+``` javascript
+var dict = Object.create(null);
+function countWords(word) {
+    var escapeKey = escapeKey(word);
+    if(escapeKey in dict) {
+        dict[escapeKey]++;
+    } else {
+        dict[escapeKey] = 1;
+    }
+}
+
+function escapeKey(key) {
+    if(key.indexOf('__proto__') === 0) {
+        return key + '%';
+    } else {
+        return key;
+    }
+}
+```
+
+*而且Map的key可以不是字符串*
+
+16. 新的字符串方法
+    - startsWith()
+
+    ``` javascript
+    str.indexOf(s) === 0; // ES5
+    str.startsWith(s); // ES6
+    ```
+    - endsWith()
+    - includes()
+    ``` javascript
+    str.indexOf('s') >=0; // ES5
+    str.includes('s'); // ES6
+    ```
+
+    - repeat()
+    ``` javascript
+    new Array(3+1).join('#'); // ES5, hack
+    '#'.repeat(3); // ES6
+    ```
+
+17. 新的数组方法
+    - Array.prototype.indexOf -> Array.prototype.findIndex
+    ``` javascript
+    const arr = [1, NaN];
+
+    arr.indexOf(NaN); // -1
+    arr.findIndex( x=> Number.isNan(x))); // 1
+    ```
+
+    * Number.isNaN() 是比 isNaN() 更安全的方法，因为isNaN会强制转型*
+    ``` javascript
+    isNaN('a'); // true
+    Number.isNaN('a'); // false
+    ```
+
+    - Array.prototype.slice() -> Array.from(),或者使用展开操作符(`...`)
+    
+    > 在ES5中，`Array.prototype.slice`方法用来将类数组对象转换为数组;
+    > 如果一个值是可迭代的，也可以使用展开操作符来转换
+
+    ``` javascript
+    var arr1 = Array.prototype.slice.call(arguments); // ES5
+    const arr2 = Array.from(arguments)
+    const arr3 = [...arguments]
+    ```
+    
+    - apply() -> Array.fill()
+
+    > 在`ES5`中可以是用`apply`的`hack`方式来创建任意长度的`undefined`数组
+
+    ES5:
+    ``` javascript
+    Array.apply(undefined, new Array(2));
+    ```
+
+    ES5:
+    ``` javascript
+    new Array(2).fill(undefined)
+    ```
+
+- CommonJS modules -> ES6 modules
+ 
+``` javascript
+import * from 'lib'
+```
+
+Single exports
+``` javascript
+export default function() {}
 ```
