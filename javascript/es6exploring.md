@@ -251,3 +251,36 @@ Single exports
 ``` javascript
 export default function() {}
 ```
+
+## Modules
+
+1. Single export
+
+导出默认匿名对象不需要分号
+``` javascript
+export default function() {} // 没有分号
+export default class {...} // 没有分号
+```
+
+2. `Modules`是单例
+
+即使被导入多次，只有一个实例存在
+
+3. ECMAScript 5 modules systems
+
+    - CommonJS Modules
+
+    > 主导该规范实现的是NodeJS
+
+        *特点*
+        - 紧凑语法(Compact syntax)
+        - 服务器端同步加载
+    - Asynchronous Module Definition(AMD)
+
+    > `RequireJS`是该规范最流行的实现
+    
+        *特点*
+        -  稍比较复杂的语法，在适使用`eval()`的情况下使`AMD`工作
+        - 为服务器端和浏览器端异步加载设计
+
+4. ECMAScript 6 modules
