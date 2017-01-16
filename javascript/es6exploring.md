@@ -284,3 +284,7 @@ export default class {...} // 没有分号
         - 为服务器端和浏览器端异步加载设计
 
 4. ECMAScript 6 modules
+
+> 两种导出方法：命名导出（一个模块可以导出多个），`default exports`（每个模块导出一个），
+> 可以混用，但是尽量分开。
+
