@@ -1,14 +1,11 @@
 "---------------------------------------------
 " File: $HOME/.vimrc
-" ²Î¿¼:https://github.com/s3rvac/dotfiles/blob/master/vim/.vimrc
+" å‚è€ƒ:https://github.com/s3rvac/dotfiles/blob/master/vim/.vimrc
 " 
 "---------------------------------------------
 
-" pathogen
-execute pathogen#infect()
-
 "---------------------------------------------
-" Í¨ÓÃ
+" é€šç”¨
 "---------------------------------------------
 set nocompatible        " Disable vi compatibility.
 set undolevels=200      " Number of undo levels.
@@ -92,7 +89,7 @@ au FileType * set textwidth=0
 "------------------------------------------------------------------------------
 
 if has("multi_byte")
-    " UTF-8 ±àÂë
+    " UTF-8 ç¼–ç 
     set encoding=utf-8
     set termencoding=utf-8
     set formatoptions+=mM
@@ -110,22 +107,22 @@ else
 endif
 
 "---------------------------------------------
-" ²å¼ş
+" æ’ä»¶
 "---------------------------------------------
 
 " NERDTree
 
-" ´ò¿ªvimÊÇ×Ô¶¯´ò¿ªNERDTree
+" æ‰“å¼€vimæ˜¯è‡ªåŠ¨æ‰“å¼€NERDTree
 autocmd vimenter * NERDTree
 
-"Èç¹û´ò¿ªvimµÄÊ±ºòÃ»ÓĞÖ¸¶¨ÎÄ¼ş£¬Ôò×Ô¶¯´ò¿ªNERDTree
+"å¦‚æœæ‰“å¼€vimçš„æ—¶å€™æ²¡æœ‰æŒ‡å®šæ–‡ä»¶ï¼Œåˆ™è‡ªåŠ¨æ‰“å¼€NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"Èç¹ûÖ»Ê£ÏÂÒ»¸öNERDTree´°¿Ú£¬Ôò¹Ø±Õvim
+"å¦‚æœåªå‰©ä¸‹ä¸€ä¸ªNERDTreeçª—å£ï¼Œåˆ™å…³é—­vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" ¿ì½İ¼üÉèÖÃ
+" å¿«æ·é”®è®¾ç½®
 map <C-n> :NERDTreeToggle<CR>
 
 "Powerline configuration
