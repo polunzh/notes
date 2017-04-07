@@ -7,12 +7,13 @@
 "---------------------------------------------
 " 通用
 "---------------------------------------------
+set relativenumber      " Show relative numbers instead of absolute ones.
 set nocompatible        " Disable vi compatibility.
 set undolevels=200      " Number of undo levels.
-" set scrolloff=10        " Keep a context (rows) when scrolling vertically.
-" set sidescroll=5        " Keep a context (columns) when scrolling horizontally.
+set scrolloff=10        " Keep a context (rows) when scrolling vertically.
+set sidescroll=5        " Keep a context (columns) when scrolling horizontally.
 set tabpagemax=1000     " Maximum number of tabs to open by the -p argument.
-" set esckeys             " Cursor keys in insert mode.
+set esckeys             " Cursor keys in insert mode.
 " set ttyfast             " Improves redrawing for newer computers.
 " set lazyredraw          " Don't redraw during complex operations (e.g. macros).
 " set autowrite           " Automatically save before :next, :make etc.
@@ -28,6 +29,7 @@ set confirm             " Ask to save file before operations like :q or :e fail.
 " set path=$PWD/**        " Include everything under $PWD into the path.
 " set nrformats-=octal    " Make incrementing 007 result into 008 rather than 010.
 
+
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
@@ -40,10 +42,6 @@ set nowritebackup       " Disable auto backup before overwriting a file.
 set history=1000        " Number of lines of command line history.
 set viminfo='100,\"500,r/mnt,r~/mnt,r/media " Read/write a .viminfo file.
 set viminfo+=h          " Do not store searches.
-
-" Line numbers.
-set number              " Show line numbers.
-set relativenumber      " Show relative numbers instead of absolute ones.
 
 " Splitting.
 set splitright          " Open new vertical panes in the right rather than left.
@@ -115,6 +113,9 @@ endif
 " 打开vim是自动打开NERDTree
 autocmd vimenter * NERDTree
 
+" 打开编辑器时鼠标默认在编辑区域
+autocmd vimenter * wincmd p
+
 "如果打开vim的时候没有指定文件，则自动打开NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -123,7 +124,7 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " 快捷键设置
-map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 
 "Powerline configuration
 " set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
