@@ -29,7 +29,12 @@
 
 ## 配置相关
 
-- 列出所有别名: git config --get-regexp alias
+- 列出所有别名: `git config --get-regexp alias`
+- 列出配置目录: `git config --list --show-origin`
+
+## 第三方
+
+1. [命令行diff工具 diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ## 问题
 
