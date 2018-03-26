@@ -27,6 +27,14 @@
 - 从仓库中以及从文件系统中删除文件: `git rm {file name}`
 - 仅从仓库中删除文件: `git rm --cached {file name}`
 
+### git log
+
+- `git log -S`
+
+### git rebase
+
+### git clean
+
 ## 配置相关
 
 - 列出所有别名: `git config --get-regexp alias`
