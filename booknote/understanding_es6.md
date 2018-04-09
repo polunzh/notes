@@ -82,6 +82,69 @@ funcs.forEach(func => {
 
 `var`会覆盖全局变量，但是 `let`和`const`不会，只是会在当前作用域中覆盖。
 
+## 函数
+
+### ECMAScript 6 中的默认参数值
+
+在已经指定默认值的参数后可以继续声明无默认值参数，这个时候，只有当不为第二个参数传入值或主动为第二个参数传入`undefined`时才会使用默认值:
+
+```javascript
+function foo(url, timeout = 2000, callback) {}
+
+foo('/sources', undefined); // 使用默认值
+foo('/sources'); // 使用默认值
+foo('/sources', null); // null 是有效值，不会使用默认值
+```
+
+### 默认参数值对 arguments 对象的影响
+
+`ES6`中的严格模式下，arguments 对象不再随着函数参数的变化而变化:
+
+```javascript
+function minxArgs(first, second) {
+  'use strict';
+
+  console.log(arguments[0] === first); // true
+  console.log(arguments[1] === second); // true
+  first = '1';
+  second = '2';
+  console.log(arguments[0] === first); // false
+  console.log(arguments[1] === second); // false
+}
+
+minxArgs(3, 4);
+```
+
+#### 参数的 TDZ
+
+```javascript
+function add(first = second, second) {
+  return first + second;
+}
+
+add(1, 1);
+add(undefined, 1);
+```
+
+函数参数有自己的作用域和临时死区，其与函数体的作用域是独立的，也就是说函数参数的默认值不可以访问函数体内声明的变量。
+
+### 不定参数
+
+#### length属性
+
+函数的`length`属性统计的是函数命名参数的数量，不定参数不会影响`length`的值:
+
+``` javascript
+function foo(a, ...keys) {} // foo.length=1
+function foo(b, b, ...keys) {} // foo.length=2
+```
+
+#### 限制
+
+1. 每个函数只能声明一个不定参数
+1. 不定参数必须放到所有参数的末尾
+1. 不定参数不能用于对象字面量的`setter`参数中, 因为`setter`只能有一个参数，但是不定参数可以有多个
+
 ## Promise
 
 ### Promise 链的返回值问题
