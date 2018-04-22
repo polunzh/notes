@@ -14,6 +14,7 @@ const condition = true;
 if (condition) {
   console.log(typeof log);
   var log = 'log';
+  G;
 }
 
 // snippet-2: 正常运行
@@ -130,20 +131,20 @@ add(undefined, 1);
 
 ### 不定参数
 
-#### length属性
+#### length 属性
 
 函数的`length`属性统计的是函数命名参数的数量，不定参数不会影响`length`的值:
 
-``` javascript
+```javascript
 function foo(a, ...keys) {} // foo.length=1
 function foo(b, b, ...keys) {} // foo.length=2
 ```
 
 #### 限制
 
-1. 每个函数只能声明一个不定参数
-1. 不定参数必须放到所有参数的末尾
-1. 不定参数不能用于对象字面量的`setter`参数中, 因为`setter`只能有一个参数，但是不定参数可以有多个
+1.  每个函数只能声明一个不定参数
+1.  不定参数必须放到所有参数的末尾
+1.  不定参数不能用于对象字面量的`setter`参数中, 因为`setter`只能有一个参数，但是不定参数可以有多个
 
 ## Promise
 
@@ -198,4 +199,72 @@ const p3 = new Promise((resolve, reject) => setTimeout(resolve, 200, 'p3'));
 
 const result = Promise.race([p1, p2, p3]);
 result.then(content => console.log(content)).catch(error => console.log(error)); // p2
+```
+
+## 解构
+
+### 数组解构
+
+> 右侧数组解构赋值表达式的值为 `null` 或 `undefined`，则会导致程序抛出错误
+
+```javascript
+let colors = ['red', 'black'];
+let [f, s] = colors;
+console.log(f, s); // red black
+```
+
+#### 解构赋值
+
+```javascript
+let colors = ['red', 'black'];
+let f = 's';
+let s = 'ss';
+[f, s] = colors;
+console.log(f, s); // red black
+
+// 交换两个值
+let a = 1;
+let b = 2;
+[a, b] = [b, a];
+```
+
+#### 默认值
+
+```javascript
+[, b = 'zhang'] = [1];
+console.log(b); // zhang
+```
+
+#### 嵌套
+
+```javascript
+[, [, c]] = [1, ['zhen', 'qiang']];
+console.log(c); // qiang
+```
+
+#### 不定元素
+
+```javascript
+const colors = ['red', 'blue', 'green'];
+const [r, ...others] = colors;
+
+console.log(r); // red
+console.log(others); // [ 'blue', 'green' ]
+
+// 赋值数组
+const [...copy] = colors; // [ 'red', 'blue', 'green' ]
+```
+
+### 解构参数
+
+> 解构参数支持所有的解构特性
+> 解构参数必须传值，否则会抛出异常
+
+```javascript
+function setCookie(name, value, { secure, path, domain, expires }) {}
+
+// 相当于
+function setCookie(name, value, options) {
+    let options = { secure, path, domain, expires };
+}
 ```
