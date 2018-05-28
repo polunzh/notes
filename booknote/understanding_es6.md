@@ -257,14 +257,34 @@ const [...copy] = colors; // [ 'red', 'blue', 'green' ]
 
 ### 解构参数
 
-> 解构参数支持所有的解构特性
-> 解构参数必须传值，否则会抛出异常
+> 解构参数支持所有的解构特性解构参数必须传值，否则会抛出异常
 
 ```javascript
 function setCookie(name, value, { secure, path, domain, expires }) {}
 
 // 相当于
 function setCookie(name, value, options) {
-    let options = { secure, path, domain, expires };
+  let options = { secure, path, domain, expires };
 }
+```
+
+## Symbol
+
+> `symbol`是一种基本类型数据，每个`Symbol()`返回的`symbol`值都是唯一的。一个 symbol 值能作为对象属性的标识符；这是该数据类型仅有的目的。
+
+```javascript
+const firstName = Symbol('first name'); // 描述是可选的
+console.log(typeof firstName); // symbol
+```
+
+### Symbol 的共享体系
+
+``` javascript
+const uid = Symbol.for('uid');
+let obj = {};
+obj[uid] = '123456';
+
+const uid2 = Symbol.for('uid');
+console.log(uid2); // 123456
+console.log(obj[uid2]); // Symbol(uid)
 ```
