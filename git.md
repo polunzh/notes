@@ -17,10 +17,11 @@
 - 推送分支 `git push origin {tagname}`
 - 推送所有分支 `git push origin --tags`
 
-### 重命名分支
+### 分支
 
-- 命名任何一个分支 `git branch -m {oldname} {newname}`
-- 命名当前分支 `git branch -m {newname}`
+- 重命名任何一个分支: `git branch -m {oldname} {newname}`
+- 重命名当前分支: `git branch -m {newname}`
+- 列出已经合并的分支: `git branch --merged`
 
 ### 删除文件
 
@@ -29,7 +30,8 @@
 
 ### git log
 
-- `git log -S`
+- 删除已合并的分支: `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d`
+- 搜索日志: `git log --grep=<pattern>`，相关: `git log --all-match`, `git log --grep-reflog=<pattern>`
 
 ### git rebase
 
