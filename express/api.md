@@ -59,7 +59,7 @@ app = express()
 > as the app does not inherit from these (it is simply a callback):
 
 ``` javascript
-var express = require('express);
+var express = require('express');
 var https = require('https');
 var http = require('http');
 var app = express();
