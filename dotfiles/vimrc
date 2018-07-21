@@ -51,7 +51,7 @@ set laststatus=2
 set tabstop=4           " Number of spaces a tab counts for.
 set shiftwidth=4        " Number of spaces to use for each step of indent.
 set shiftround          " Round indent to multiple of shiftwidth.
-set noexpandtab         " Do not expand tab with spaces.
+set expandtab
 
 " Wrapping.
 set wrap                " Enable text wrapping.
