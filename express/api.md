@@ -59,7 +59,7 @@ app = express()
 > as the app does not inherit from these (it is simply a callback):
 
 ``` javascript
-var express = require('express);
+var express = require('express');
 var https = require('https');
 var http = require('http');
 var app = express();
@@ -69,6 +69,6 @@ https.createServer(options, app).listen(80);
 ```
 ### app.param(name, callback)
 
-- 只用用在注册在app上的路由，而且不能继承，所以不能用于其子项目(sub-app)；而且注册在`app`上的
+- 只用在注册在app上的路由，而且不能继承，所以不能用于其子项目(sub-app)；而且注册在`app`上的
 `express.Router`对象也不行。
 - 在一次请求/响应周期中每个参数只触发一次，即使这个参数被匹配到了多次。
