@@ -23,6 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'prettier/vim-prettier'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -47,8 +48,8 @@ set lazyredraw                  " Don't redraw during complex operations (e.g. m
 set autowrite                   " Automatically save before :next, :make etc.
 set confirm                     " Ask to save file before operations like :q or :e fail.
 
-" Allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>" "使用enter选择suggest
 
 " Backup and swap files.
 set nobackup            " Disable backup files.
@@ -128,7 +129,7 @@ autocmd vimenter * wincmd p
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "如果只剩下一个NERDTree窗口，则关闭vim
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
 
