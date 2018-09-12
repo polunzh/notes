@@ -44,6 +44,13 @@
 			<key>Text</key>
 			<string>9F1F7CEC-B513-4B3C-BA54-66DF9951F35A</string>
 		</dict>
+		<key>0x74-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>13</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -180,11 +187,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 508 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>512 581 796 473 0 0 2048 1129 </string>
+	<string>590 612 796 473 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 41 2048 1088 0 0 2048 1129 </string>
+	<string>0 23 2048 1106 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 548 665 502 0 0 1920 1057 </string>
+	<string>0 636 665 477 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>444 310 570 452 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -799,7 +806,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.140143163071066</real>
+			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -825,7 +832,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>0342A103-E87E-4E1C-915F-156D60B01C48</string>
 	<key>NoSyncLastTipTime</key>
-	<real>555787622.918172</real>
+	<real>557378868.22015595</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -894,6 +901,21 @@
 		<string>0054</string>
 		<string>0055</string>
 		<string>0056</string>
+		<string>0057</string>
+		<string>0058</string>
+		<string>0059</string>
+		<string>0060</string>
+		<string>0061</string>
+		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
+		<string>0066</string>
+		<string>0067</string>
+		<string>0068</string>
+		<string>0069</string>
+		<string>0070</string>
+		<string>0071</string>
 	</array>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
@@ -947,7 +969,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-08-12T08:27:20Z</date>
+	<date>2018-09-11T02:46:44Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SwitchPaneModifier</key>
