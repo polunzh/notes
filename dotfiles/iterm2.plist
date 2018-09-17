@@ -187,9 +187,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 508 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>590 612 796 473 0 0 2048 1129 </string>
+	<string>590 573 796 473 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 23 2048 1106 0 0 2048 1129 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 636 665 477 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -969,7 +969,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-11T02:46:44Z</date>
+	<date>2018-09-15T11:15:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SwitchPaneModifier</key>

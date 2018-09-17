@@ -51,6 +51,12 @@ set confirm                     " Ask to save file before operations like :q or 
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>" "使用enter选择suggest
 
+" hlsearch
+set hlsearch
+set incsearch
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " Backup and swap files.
 set nobackup            " Disable backup files.
 set noswapfile          " Disable swap files.
@@ -132,7 +138,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
-
 " 快捷键设置
 map <C-e> :NERDTreeToggle<CR>
 
