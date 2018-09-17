@@ -29,6 +29,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wincent/command-t'
+Plugin 'MattesGroeger/vim-bookmarks'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -137,7 +138,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "如果只剩下一个NERDTree窗口，则关闭vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
+let NERDTreeIgnore=['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
 " 快捷键设置
 map <C-e> :NERDTreeToggle<CR>
 
@@ -159,3 +160,6 @@ let g:syntastic_javsacript_checkers = ['eslint']
 
 " Prettier
 nmap <Leader>f <Plug>(Prettier)
+
+" command-t
+set wildignore+=dist,node_modules
