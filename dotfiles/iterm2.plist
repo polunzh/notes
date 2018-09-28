@@ -13,6 +13,8 @@
 	<key>Default Bookmark Guid</key>
 	<string>9F1F7CEC-B513-4B3C-BA54-66DF9951F35A</string>
 	<key>DimInactiveSplitPanes</key>
+	<true/>
+	<key>DimOnlyText</key>
 	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
@@ -187,7 +189,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 508 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>590 573 796 473 0 0 2048 1129 </string>
+	<string>590 661 770 429 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -969,7 +971,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-15T11:15:20Z</date>
+	<date>2018-09-21T02:07:11Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SwitchPaneModifier</key>

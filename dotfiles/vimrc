@@ -30,6 +30,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wincent/command-t'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
