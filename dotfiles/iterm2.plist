@@ -191,7 +191,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>590 661 770 429 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
+	<string>0 13 2013 1116 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 636 665 477 0 0 2048 1129 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -923,6 +923,8 @@
 	<integer>0</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -971,7 +973,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-21T02:07:11Z</date>
+	<date>2018-10-12T02:07:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SwitchPaneModifier</key>
@@ -985,6 +987,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.7</string>
+	<string>3.2.0</string>
 </dict>
 </plist>
