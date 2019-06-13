@@ -32,6 +32,7 @@ Plugin 'wincent/command-t'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,7 +87,8 @@ au FileType * set autoindent nosmartindent nocindent fo+=q fo-=r fo-=o fo+=j
 set laststatus=2
 
 " Whitespace.  set tabstop=4           " Number of spaces a tab counts for.
-set shiftwidth=4        " Number of spaces to use for each step of indent.
+set tabstop=2
+set shiftwidth=2        " Number of spaces to use for each step of indent.
 set shiftround          " Round indent to multiple of shiftwidth.
 set expandtab         " Do not expand tab with spaces.
 
@@ -129,15 +131,15 @@ let mapleader = "\<Space>"
 
 " NERDTree
 
-" 打开vim是自动打开NERDTree
+" 打开vim时自动打开NERDTree
 " autocmd vimenter * NERDTree
 
 " 打开编辑器时鼠标默认在编辑区域
 autocmd vimenter * wincmd p
-"如果打开vim的时候没有指定文件，则自动打开NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"如果只剩下一个NERDTree窗口，则关闭vim
+" 如果打开vim的时候没有指定文件，则自动打开NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" 如果只剩下一个NERDTree窗口，则关闭vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
