@@ -9,6 +9,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" set fzf
+set rtp+=/usr/local/opt/fzf
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,7 +31,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'wincent/command-t'
+Plugin 'junegunn/fzf.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
@@ -126,7 +129,7 @@ endif
 let mapleader = "\<Space>"
 
 "---------------------------------------------
-" 插件
+" Plugins
 "---------------------------------------------
 
 " NERDTree
@@ -145,6 +148,28 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
 " 快捷键设置
 map <C-e> :NERDTreeToggle<CR>
+" end NERDTree
+
+
+" FZF
+
+" prevent fzf buffers in nerdtree
+let g:fzf_layout = { 'window': 'let g:launching_fzf = 1 | keepalt topleft 100split enew' }
+autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
+autocmd BufWinEnter * call PreventBuffersInNERDTree()
+
+function! PreventBuffersInNERDTree()
+  if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree'
+    \ && exists('t:nerdtree_winnr') && bufwinnr('%') == t:nerdtree_winnr
+    \ && &buftype == '' && !exists('g:launching_fzf')
+    let bufnum = bufnr('%')
+    close
+    exe 'b ' . bufnum
+  endif
+  if exists('g:launching_fzf') | unlet g:launching_fzf | endif
+endfunction
+
+" end FZF
 
 " Powerline configuration
 set t_Co=256
@@ -164,6 +189,3 @@ let g:syntastic_javsacript_checkers = ['eslint']
 
 " Prettier
 nmap <Leader>f <Plug>(Prettier)
-
-" command-t
-set wildignore+=dist,node_modules
