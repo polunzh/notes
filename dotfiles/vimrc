@@ -36,6 +36,8 @@ Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -83,6 +85,9 @@ set secure              " Forbid loading of .vimrc under $PWD.
 set nomodeline          " Modelines have been a source of vulnerabilities.
 
 syntax on
+set background=light
+colorscheme PaperColor
+
 filetype indent on      " Turn off indention by filetype.
 " Override the previous settings for all file types (some filetype plugins set
 " these options to different values, which is really annoying).
