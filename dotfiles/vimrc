@@ -9,35 +9,37 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set fzf
 set rtp+=/usr/local/opt/fzf
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'pangloss/vim-javascript'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'prettier/vim-prettier'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'junegunn/fzf.vim'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/goyo.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'dracula/vim'
+Plugin 'fatih/vim-go'
+Plugin 'jiangmiao/auto-pairs'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'ternjs/tern_for_vim'
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'heavenshell/vim-jsdoc'
+"Plugin 'prettier/vim-prettier'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'editorconfig/editorconfig-vim'
+"Plugin 'MattesGroeger/vim-bookmarks'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'junegunn/goyo.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'rizzatti/dash.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,7 +53,7 @@ set undolevels=200              " Number of undo levels.
 set scrolloff=10                " Keep a context (rows) when scrolling vertically.
 set sidescroll=5                " Keep a context (columns) when scrolling horizontally.
 set tabpagemax=1000             " Maximum number of tabs to open by the -p argument.
-set esckeys                     " Cursor keys in insert mode.
+" set esckeys                     " Cursor keys in insert mode, disable in nvim.
 set ttyfast                     " Improves redrawing for newer computers.
 set lazyredraw                  " Don't redraw during complex operations (e.g. macros).
 set autowrite                   " Automatically save before :next, :make etc.
@@ -59,7 +61,6 @@ set confirm                     " Ask to save file before operations like :q or 
 
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>" "使用enter选择suggest
-
 " hlsearch
 set hlsearch
 set incsearch
@@ -83,10 +84,14 @@ set splitbelow          " Open new horizontal panes in the bottom rather than to
 " Security.
 set secure              " Forbid loading of .vimrc under $PWD.
 set nomodeline          " Modelines have been a source of vulnerabilities.
-
+set autoread
 syntax on
-set background=light
-colorscheme PaperColor
+
+" Color: {{{
+  set background=dark
+  " colorscheme delek
+  colorscheme dracula
+" }}}
 
 filetype indent on      " Turn off indention by filetype.
 " Override the previous settings for all file types (some filetype plugins set
@@ -108,6 +113,7 @@ set textwidth=0         " Don't automatically wrap lines.
 " Disable automatic wrapping for all files (some filetype plugins set this to
 " a different value, which is really annoying).
 au FileType * set textwidth=0
+" set clipboard=unnamed
 
 "------------------------------------------------------------------------------
 " Typos correction.
@@ -148,49 +154,60 @@ autocmd vimenter * wincmd p
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 如果只剩下一个NERDTree窗口，则关闭vim
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeQuitOnOpen=0
+
 let NERDTreeIgnore=['\.pyc$', '\.git', '\.DS_Store', '\.svn', 'coverage', '__pycache', '\.vscode']
 " 快捷键设置
 map <C-e> :NERDTreeToggle<CR>
 " end NERDTree
 
 
-" FZF
-
-" prevent fzf buffers in nerdtree
-let g:fzf_layout = { 'window': 'let g:launching_fzf = 1 | keepalt topleft 100split enew' }
-autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
-autocmd BufWinEnter * call PreventBuffersInNERDTree()
-
-function! PreventBuffersInNERDTree()
-  if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree'
-    \ && exists('t:nerdtree_winnr') && bufwinnr('%') == t:nerdtree_winnr
-    \ && &buftype == '' && !exists('g:launching_fzf')
-    let bufnum = bufnr('%')
-    close
-    exe 'b ' . bufnum
-  endif
-  if exists('g:launching_fzf') | unlet g:launching_fzf | endif
-endfunction
-
-" end FZF
-
-" Powerline configuration
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-let Powerline_symbols = 'compatible'
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javsacript_checkers = ['eslint']
-
+"" FZF
+"" prevent fzf buffers in nerdtree
+"let g:fzf_layout = { 'window': 'let g:launching_fzf = 1 | keepalt topleft 100split enew' }
+"autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
+"autocmd BufWinEnter * call PreventBuffersInNERDTree()
+"
+"function! PreventBuffersInNERDTree()
+"  if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree'
+"    \ && exists('t:nerdtree_winnr') && bufwinnr('%') == t:nerdtree_winnr
+"    \ && &buftype == '' && !exists('g:launching_fzf')
+"    let bufnum = bufnr('%')
+"    close
+"    exe 'b ' . bufnum
+"  endif
+"  if exists('g:launching_fzf') | unlet g:launching_fzf | endif
+"endfunction
+"
+"nmap <C-p> :Files<CR>
+"
+"" end FZF
+"
+"" Powerline configuration
+"set t_Co=256
+"let g:Powerline_symbols = 'fancy'
+"let Powerline_symbols = 'compatible'
+"
+"" syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javsacript_checkers = ['eslint']
+"
 " Prettier
-nmap <Leader>f <Plug>(Prettier)
+"nmap <Leader>f <Plug>(Prettier)
+
+" noremap
+    noremap gh <C-W>h
+    noremap gk <C-W>k
+    noremap gl <C-W>l
+    noremap gj <C-W>j
+
+" save
+noremap <Leader>s :update<CR>
